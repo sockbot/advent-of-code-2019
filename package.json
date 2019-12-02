@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/sockbot/advent-of-code-2019#readme",
   "dependencies": {
+    "@prettier/plugin-php": "^0.11.2",
     "axios": "^0.19.0",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "prettier": "^1.19.1"
   }
 }
