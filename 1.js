@@ -1,4 +1,5 @@
-const fs = require("fs");
+require("dotenv").config();
+const axios = require("axios");
 
 const calculateFuel = mass => {
   const fuel = Math.floor(mass / 3) - 2;
@@ -7,12 +8,17 @@ const calculateFuel = mass => {
   } else return 0;
 };
 
-fs.readFile("1-input.txt", "utf-8", (err, data) => {
-  if (err) throw err;
-  const input = data.split("\n");
-  const total = input.reduce((a, b) => {
-    return a + calculateFuel(b);
-  }, 0);
-  console.log(total);
-  return total;
-});
+axios
+  .get("https://adventofcode.com/2019/day/1/input", {
+    headers: {
+      Cookie: `session=${process.env.AOC_COOKIE}`
+    }
+  })
+  .then(res => {
+    const input = res.data.split("\n");
+    const total = input.reduce((a, b) => {
+      return a + calculateFuel(b);
+    }, 0);
+    console.log(total);
+    return total;
+  });
