@@ -28,7 +28,7 @@ axios
       for (let verb = 0; verb < 100; verb++) {
         instructions[1] = noun;
         instructions[2] = verb;
-        for (let i = 0; i < instructions.length; i = i + 4) {
+        for (let i = 0; i < instructions.length; i += 4) {
           const answer = runComputer(
             instructions[i],
             instructions[i + 1],

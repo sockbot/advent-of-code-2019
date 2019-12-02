@@ -1,17 +1,16 @@
 <?php
 require 'vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+Dotenv\Dotenv::createImmutable(__DIR__)->load();
 
-$client = new \GuzzleHttp\Client();
-use GuzzleHttp\Cookie\CookieJar;
-$jar = CookieJar::fromArray(
+$jar = GuzzleHttp\Cookie\CookieJar::fromArray(
   [
     'session' => $_ENV['AOC_COOKIE']
   ],
   'adventofcode.com'
 );
+
+$client = new \GuzzleHttp\Client();
 $response = $client->request(
   'GET',
   "https://adventofcode.com/2019/day/1/input",
