@@ -1,7 +1,10 @@
 const fs = require("fs");
 
 const calculateFuel = mass => {
-  return Math.floor(mass / 3) - 2;
+  const fuel = Math.floor(mass / 3) - 2;
+  if (fuel > 0) {
+    return fuel + calculateFuel(fuel);
+  } else return 0;
 };
 
 fs.readFile("1-input.txt", "utf-8", (err, data) => {
