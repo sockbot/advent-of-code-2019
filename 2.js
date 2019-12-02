@@ -15,7 +15,6 @@ axios
     const runComputer = (opcode, input1, input2, output) => {
       let value = 0;
       if (opcode === 99) {
-        // console.log("ANSWER FOUND:", instructions[0]);
         return instructions[0];
       } else if (opcode === 1) {
         value = instructions[input1] + instructions[input2];

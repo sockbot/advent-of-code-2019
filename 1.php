@@ -1,16 +1,30 @@
 <?php
-// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-// $dotenv->load();
-// echo $_ENV['AOC_COOKIE'];
-($file = fopen("1-input.txt", "r")) or die("Unable to open file!");
-$input = fread($file, filesize("1-input.txt"));
-fclose($file);
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$client = new \GuzzleHttp\Client();
+use GuzzleHttp\Cookie\CookieJar;
+$jar = CookieJar::fromArray(
+  [
+    'session' => $_ENV['AOC_COOKIE']
+  ],
+  'adventofcode.com'
+);
+$response = $client->request(
+  'GET',
+  "https://adventofcode.com/2019/day/1/input",
+  ['cookies' => $jar]
+);
+
+$input = $response->getBody();
 
 $data = explode("\n", $input);
 
 function calculateFuel($mass)
 {
-  $fuel = floor($mass / 3) - 2;
+  $fuel = floor((int) $mass / 3) - 2;
   if ($fuel > 0) {
     return $fuel + calculateFuel($fuel);
   }
