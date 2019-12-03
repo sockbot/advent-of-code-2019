@@ -25,7 +25,7 @@ $instructions = $data;
 
 function compute($opcode, $input1, $input2, $outputIndex)
 {
-  global $instructions;
+  global $instructions; // must explicitly make global variable available in scope
   if ($opcode == 99) {
     return $instructions[0];
   } elseif ($opcode == 1) {
@@ -48,7 +48,7 @@ for ($i = 0; $i < count($instructions); $i += 4) {
     $instructions[$i + 3]
   );
 }
-print "Part one answer: " . $instructions[0] . "\n";
+echo "Part one answer: " . $instructions[0] . "\n";
 
 $instructions = $data;
 for ($noun = 0; $noun < 100; $noun++) {
@@ -64,7 +64,7 @@ for ($noun = 0; $noun < 100; $noun++) {
       );
       if ($answer == 19690720) {
         $result = 100 * $noun + $verb;
-        echo "Part two answer: " . $result . "\n";
+        echo "Part two answer: " . $result . "\n"; // why can't I put the expression inline?
       }
     }
     $instructions = $data;
