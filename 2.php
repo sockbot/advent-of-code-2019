@@ -22,7 +22,7 @@ $input = $response->getBody();
 $data = explode(",", $input);
 
 $instructions = $data;
-// print_r($instructions);
+
 function compute($opcode, $input1, $input2, $outputIndex)
 {
   global $instructions;
@@ -56,15 +56,15 @@ for ($noun = 0; $noun < 100; $noun++) {
     $instructions[1] = $noun;
     $instructions[2] = $verb;
     for ($i = 0; $i < count($instructions); $i += 4) {
-      compute(
+      $answer = compute(
         $instructions[$i],
         $instructions[$i + 1],
         $instructions[$i + 2],
         $instructions[$i + 3]
       );
       if ($answer == 19690720) {
-        echo "Hello world";
-        print "Part two answer: " . 100 * $noun + $verb . "\n";
+        $result = 100 * $noun + $verb;
+        echo "Part two answer: " . $result . "\n";
       }
     }
     $instructions = $data;
