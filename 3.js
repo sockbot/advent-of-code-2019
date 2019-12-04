@@ -19,18 +19,25 @@ axios
     data1.forEach(instruction => (path1 = travel(instruction, path1)));
     data2.forEach(x => (path2 = travel(x, path2)));
 
+    // Part 1
     for (let i = 0; i < path1.length; i++) {
-      console.log(`Iteration: ${i}`);
+      if (i % 10000 === 0) {
+        console.log(`Iteration: ${i}`);
+      }
       for (let j = 0; j < path2.length; j++) {
         if (_.isEqual(path1[i], path2[j])) {
           fs.appendFileSync(
             "3-output.txt",
-            JSON.stringify(path1[i]) + "\n",
+            `Path 1: ${i} + Path 2: ${j} = Total Path: ${i + j} ` +
+              JSON.stringify(path1[i]) +
+              "\n",
             "utf8"
           );
           console.log(
             `Found solution at path1 index ${i}: ${JSON.stringify(path1[i])}`
           );
+          // Part 2
+          console.log(`Path distance is ${i} + ${j} = ${i + j}`);
         }
       }
     }

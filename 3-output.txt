@@ -1,0 +1,9 @@
+Path 1: 0 + Path 2: 0 = Total Path: 0 {"x":0,"y":0}
+Path 1: 2012 + Path 2: 9420 = Total Path: 11432 {"x":525,"y":543}
+Path 1: 2141 + Path 2: 9549 = Total Path: 11690 {"x":468,"y":615}
+Path 1: 3438 + Path 2: 13390 = Total Path: 16828 {"x":921,"y":1459}
+Path 1: 3663 + Path 2: 14995 = Total Path: 18658 {"x":1146,"y":1459}
+Path 1: 3778 + Path 2: 16880 = Total Path: 20658 {"x":1261,"y":1459}
+Path 1: 3813 + Path 2: 14625 = Total Path: 18438 {"x":1296,"y":1459}
+Path 1: 4129 + Path 2: 17231 = Total Path: 21360 {"x":1323,"y":1748}
+Path 1: 5245 + Path 2: 17141 = Total Path: 22386 {"x":1261,"y":1720}
