@@ -22,18 +22,8 @@ const alwaysIncreasing = num => {
   return true;
 };
 
-const hasTriple = num => {
-  const digits = num.toString().split("");
-  for (let i = 2; i < digits.length; i++) {
-    if (digits[i] === digits[i - 1] && digits[i] === digits[i - 2]) {
-      return true;
-    }
-  }
-  return false;
-};
-
 for (let i = rangeStart; i < rangeEnd; i++) {
-  if (hasDouble(i) && alwaysIncreasing(i) && !hasTriple(i)) {
+  if (hasDouble(i) && alwaysIncreasing(i)) {
     count++;
   }
 }
