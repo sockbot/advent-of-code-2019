@@ -18,7 +18,7 @@
   "homepage": "https://github.com/sockbot/advent-of-code-2019#readme",
   "dependencies": {
     "@prettier/plugin-php": "^0.11.2",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
     "mocha": "^6.2.2",
